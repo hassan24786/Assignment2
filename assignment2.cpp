@@ -138,6 +138,15 @@ int main()
     std::cout<<std::get<1>(filtered_marks)<<"\t"<<std::get<2>(filtered_marks)<<std::endl;
   }
 
+  std::vector<std::tuple<double, int, std::string>>::iterator vector_begin = filtered_data.begin();
+  std::vector<std::tuple<double, int, std::string>>::iterator vector_end = filtered_data.end();
+  for(std::vector<std::tuple<double, int, std::string>>::iterator vector_iterator = vector_begin; vector_iterator != vector_end; ++vector_iterator) 
+  {
+    std::stringstream course_info_stream;
+    course_info_stream << std::get<1>(*vector_iterator)<< " "<< std::get<2>(*vector_iterator);
+    std::cout<<course_info_stream.str() << std::endl;
+  }
+
   if(!sorted_marks.empty())
   {
     std::cout<<"\nThe relevant statistics for courses ";
